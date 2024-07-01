@@ -1,0 +1,41 @@
+.header {
+  background-color: #fc8019;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+.header h1 {
+  color: white;
+  margin: 20px 0;
+  font-size: 26px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+.btn {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  padding: 10px 20px;
+  background-color: rgb(200, 75, 12);
+  color: azure;
+  width: auto;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+  background-color: darkred;
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
