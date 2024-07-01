@@ -40,7 +40,13 @@ const DUMMY_MEALS = [
 ];
 
 export const AvailableMeals = () => {
-  const mealsList = DUMMY_MEALS.map((meal) => <li>{meal.name}</li>);
+  const mealsList = DUMMY_MEALS.map((meal) => (
+    <li key={meal.id}>
+      <h3>{meal.name}</h3>
+      <p>{meal.description}</p>
+      <p>${meal.price.toFixed(2)}</p>
+    </li>
+  ));
   return (
     <section className={classes.meals}>
       <ul>{mealsList}</ul>
