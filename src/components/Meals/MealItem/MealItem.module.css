@@ -1,0 +1,25 @@
+.meal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.meal h3 {
+  margin: 0 0 0.5rem 0;
+}
+
+.meal .description {
+  margin-bottom: 0.5rem;
+}
+
+.meal .price {
+  font-weight: bold;
+  color: #ad5502;
+}
+
+.meal:last-of-type {
+  border-bottom: none;
+}

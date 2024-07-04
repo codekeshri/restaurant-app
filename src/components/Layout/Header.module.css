@@ -43,3 +43,25 @@
   max-height: 10px;
   opacity: 15%;
 }
+
+.icon {
+  margin-right: 0.5rem;
+}
+
+.badge {
+  background-color: #fc8019; /* Red color for the badge */
+  color: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px; /* Make it oval */
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-left: 0.5rem;
+}
+
+.btn span {
+  margin-right: 0.5rem;
+}
+
+.cil-energy.icon.icon-xxl {
+  font-size: 1.5rem;
+}
