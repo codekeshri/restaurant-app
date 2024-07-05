@@ -1,5 +1,4 @@
 import React from "react";
-import { MealItemForm } from "./MealItem/MealItemForm";
 import classes from "./AvailableMeals.module.css";
 import { MealItem } from "./MealItem/MealItem";
 const DUMMY_MEALS = [
@@ -45,10 +44,6 @@ export const AvailableMeals = () => {
   const mealsList = DUMMY_MEALS.map((meal) => (
     <li key={meal.id}>
       <MealItem meal={meal} />
-      {/* <h3>{meal.name}</h3>
-      <p>{meal.description}</p>
-      <p>${meal.price.toFixed(2)}</p>
-      <MealItemForm /> */}
     </li>
   ));
   return (
