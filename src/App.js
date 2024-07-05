@@ -6,7 +6,6 @@ import { Fragment } from "react";
 function App() {
   return (
     <Fragment>
-      <Cart />
       <Header />
       <main>
         <Meals />

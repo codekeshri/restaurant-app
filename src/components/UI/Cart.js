@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./Cart.module.css";
 import { Modal } from "./Modal";
+import { HeaderCartButton } from "../Layout/HeaderCartButton";
 
 export const Cart = (props) => {
+  const [isModelOpen, setIsModelOpen] = useState(false);
+
   const cartItems = (
     <ul className={classes["cart-items"]}>
       {[
@@ -19,21 +22,43 @@ export const Cart = (props) => {
           price: 12.99,
         },
       ].map((item) => (
-        <li>{item.name}</li>
+        <li key={item.id}>{item.name}</li>
       ))}
     </ul>
   );
+
+  const openModalHandler = () => {
+    setIsModelOpen(true);
+  };
+
+  const closeModalHandler = () => {
+    console.log("close the modal");
+    setIsModelOpen(false);
+  };
+
   return (
-    <Modal>
-      {cartItems}
-      <div className={classes.total}>
-        <span>Total Amount</span>
-        <span>35.45</span>
-      </div>
-      <div className={classes.actions}>
-        <button className={classes["button-alt"]}>Close</button>
-        <button className={classes.button}>Order</button>
-      </div>
-    </Modal>
+    <>
+      <HeaderCartButton onClick={openModalHandler} />
+      {isModelOpen && (
+        <Modal>
+          {cartItems}
+          <div className={classes.total}>
+            <span>Total Amount</span>
+            <span>35.45</span>
+          </div>
+          <div className={classes.actions}>
+            <button
+              className={classes["button-alt"]}
+              onClick={closeModalHandler}
+            >
+              Close
+            </button>
+            <button className={classes.button} onClick={openModalHandler}>
+              Order
+            </button>
+          </div>
+        </Modal>
+      )}
+    </>
   );
 };
