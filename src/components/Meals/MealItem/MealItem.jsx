@@ -3,16 +3,16 @@ import { MealItemForm } from "./MealItemForm";
 import classes from "./MealItem.module.css";
 
 export const MealItem = (props) => {
-  props = props.meal;
+  const meal = props.meal;
   return (
     <div className={classes.meal}>
       <div>
-        <h3>{props.name}</h3>
-        <div className={classes.description}>{props.description}</div>
-        <div className={classes.price}>${props.price.toFixed(2)}</div>
+        <h3>{meal.name}</h3>
+        <div className={classes.description}>{meal.description}</div>
+        <div className={classes.price}>${meal.price.toFixed(2)}</div>
       </div>
       <div>
-        <MealItemForm props={props} />
+        <MealItemForm id={props.id} items={props} />
       </div>
     </div>
   );
