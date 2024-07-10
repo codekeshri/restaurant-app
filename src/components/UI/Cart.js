@@ -1,29 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import classes from "./Cart.module.css";
 import { Modal } from "./Modal";
 import { HeaderCartButton } from "../Layout/HeaderCartButton";
+import CartContext from "../store/cart-context";
 
 export const Cart = (props) => {
+  console.log("cart-items", props.items);
   const [isModelOpen, setIsModelOpen] = useState(false);
+  const cart = useContext(CartContext);
+  const totalAmount = `$${cart.totalAmout.toFixed(2)}`;
+  const hasItems = cart.items.length > 0;
 
   const cartItems = (
     <ul className={classes["cart-items"]}>
-      {[
-        {
-          id: "c1",
-          name: "Sushi",
-          amount: 2,
-          price: 12.99,
-        },
-        {
-          id: "c2",
-          name: "Mushi",
-          amount: 2,
-          price: 12.99,
-        },
-      ].map((item) => (
-        <li key={item.id}>{item.name}</li>
-      ))}
+      {cart.items.map((item) => {
+        return <li key={Math.random()}>{item.name}</li>;
+      })}
     </ul>
   );
 
@@ -32,7 +24,6 @@ export const Cart = (props) => {
   };
 
   const closeModalHandler = () => {
-    console.log("close the modal");
     setIsModelOpen(false);
   };
 
@@ -44,7 +35,7 @@ export const Cart = (props) => {
           {cartItems}
           <div className={classes.total}>
             <span>Total Amount</span>
-            <span>35.45</span>
+            <span>{totalAmount}</span>
           </div>
           <div className={classes.actions}>
             <button
@@ -53,9 +44,11 @@ export const Cart = (props) => {
             >
               Close
             </button>
-            <button className={classes.button} onClick={openModalHandler}>
-              Order
-            </button>
+            {hasItems && (
+              <button className={classes.button} onClick={openModalHandler}>
+                Order
+              </button>
+            )}
           </div>
         </Modal>
       )}

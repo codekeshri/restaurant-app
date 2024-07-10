@@ -9,13 +9,9 @@ export const MealItemForm = (props) => {
 
   const addItemToCart = (event) => {
     event.preventDefault();
-    // CartContext.addItem(props.item);
-    cart.items.push(props);
-    console.log(cart.items);
-  };
-
-  const inputHandler = (event) => {
-    console.log("ok", event.target.value);
+    const enteredAmount = ref.current.value;
+    const item = { ...props.item, quantity: Number(enteredAmount) };
+    cart.addItem(item);
   };
 
   return (
@@ -30,8 +26,6 @@ export const MealItemForm = (props) => {
           max: "5",
           step: "1",
           defaultValue: 1,
-          // value: numberOfCartItems,
-          onChange: inputHandler,
         }}
       />
       <button type="submit">+ Add</button>

@@ -6,16 +6,16 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 export const HeaderCartButton = (props) => {
   const cartContext = useContext(CartContext);
-  console.log(props, "at the Header Cart Button");
-  const numberOfCartItems = cartContext.items.length;
-  console.log(numberOfCartItems, "no of cart items");
+  const numberOfCartItems = cartContext.items.reduce((n, item) => {
+    return n + item.quantity;
+  }, 0);
 
   return (
     <button className={classes.btn} onClick={props.onClick}>
       <FontAwesomeIcon icon={faCartShopping} />
       <span> Cart</span>
 
-      <span className={classes.badge}>{numberOfCartItems}</span>
+      <span className={classes.badge}>{numberOfCartItems.toString()}</span>
     </button>
   );
 };
